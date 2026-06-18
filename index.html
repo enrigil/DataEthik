@@ -18,6 +18,41 @@
 
   <script>
     tailwind.config = {
+      // Safelist: Tailwind CDN cannot scan class names inside <script type="text/babel"> tags.
+      // All dynamically composed class names used in JSX must be listed here explicitly,
+      // otherwise they are missing on GitHub Pages (and other production hosts).
+      safelist: [
+        // HowSection: card colors (dynamisch via card.color / card.textColor)
+        'bg-indigo-100', 'text-indigo-800',
+        'bg-emerald-100', 'text-emerald-800',
+        'bg-rose-100', 'text-rose-800',
+        'bg-amber-100', 'text-amber-800',
+        // SecuritySection: stepColors array
+        'bg-green-500', 'bg-yellow-400', 'bg-orange-500', 'bg-red-600',
+        // ProtectionSection: Tor-Node border/glow colors
+        'border-green-400', 'border-yellow-400', 'border-red-400',
+        'text-green-400', 'text-yellow-400', 'text-red-400', 'text-purple-400',
+        'scale-110',
+        'shadow-[0_0_15px_rgba(74,222,128,0.3)]',
+        'shadow-[0_0_15px_rgba(250,204,21,0.3)]',
+        'shadow-[0_0_15px_rgba(248,113,113,0.3)]',
+        // QuizSection: resultProfile colors
+        'border-red-300', 'bg-red-50', 'text-red-700',
+        'border-orange-300', 'bg-orange-50', 'text-orange-700',
+        'border-green-300', 'bg-green-50', 'text-green-700',
+        // Allgemeine bedingte Klassen
+        'border-transparent', 'border-slate-300',
+        'max-h-0', 'max-h-40', 'opacity-0', 'opacity-100',
+        'cursor-not-allowed',
+        'animate-slideRight-1', 'animate-slideRight-2', 'animate-slideRight-3',
+        'animate-fadeIn', 'animate-pulse',
+        'bg-blue-50', 'text-blue-700', 'border-blue-200',
+        'bg-green-100', 'border-green-300', 'text-green-800',
+        'bg-red-50', 'border-red-200', 'text-red-900',
+        'bg-red-100', 'border-red-300',
+        'bg-slate-100', 'opacity-50',
+        'text-green-600', 'text-orange-500',
+      ],
       theme: {
         extend: {
           keyframes: {
